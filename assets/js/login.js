@@ -30,7 +30,7 @@ $(function (){
        //阻止表单的默认提交
        e.preventDefault()
        //发起ajax的post请求
-       $.post('http://api-breakingnews-web.itheima.net/api/reguser',{ username: $('#form_reg [name=username]').val(),
+       $.post('/api/reguser',{ username: $('#form_reg [name=username]').val(),
         password: $('#form_reg [name=password]').val()  }, function(res){
             if(res.status !== 0) {
                 return layer.msg(res.message)
@@ -46,7 +46,7 @@ $(function (){
     $('#form_login').submit('click',function(e){
          e.preventDefault()
          $.ajax({
-             url:'http://api-breakingnews-web.itheima.net/api/login/' ,
+             url:'/api/login/' ,
              method:'POST',
              data: $(this).serialize(),
              success: function(res){
@@ -60,4 +60,5 @@ $(function (){
              }
          })
     })
+    
 })
